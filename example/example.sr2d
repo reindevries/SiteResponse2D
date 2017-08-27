@@ -1,0 +1,17 @@
+ground_motion_x = gm_x.csv
+ground_motion_y = gm_y.csv
+ground_motion_z = gm_z.csv
+output_ground_motion_x = output_gm_x.csv
+output_ground_motion_y = output_gm_y.csv
+output_ground_motion_z = output_gm_z.csv
+soil_elements = soil_elements.csv
+max_strains = max_strains.csv
+scale_factor = 1
+damping_ratio = 0.01
+damping_period = 0.1
+damping_tangent = true
+p_wave_vel_z = 1500
+timestep = 5e-4
+output_timestep = 5e-3
+output_extent = 0
+verbosity = 1

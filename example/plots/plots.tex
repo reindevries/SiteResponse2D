@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{pgfplots}
+\begin{document}
+	\begin{figure}[H]
+		\centering
+		\tikz{
+			\begin{axis}[
+					width=14cm, height=6cm,
+					xmin=0, xmax=6,
+					ymin=-4, ymax=4,
+					try min ticks=6,
+					grid=major,
+					major grid style={black!5!white},
+					%xlabel={Time ($t$) [s]},
+					ylabel={Acceleration ($a_y$) [m/s\textsuperscript{2}]},
+					legend entries={Input (bottom)},
+					x tick label style={white},
+				]
+				\addplot[thick,red] table [col sep=comma] {../input_y.csv};
+			\end{axis}
+		}
+	\end{figure}
+	\vskip-30pt
+	\begin{figure}[H]
+		\centering
+		\tikz{
+			\begin{axis}[
+					width=14cm, height=6cm,
+					xmin=0, xmax=6,
+					ymin=-4, ymax=4,
+					try min ticks=6,
+					grid=major,
+					major grid style={black!5!white},
+					xlabel={Time ($t$) [s]},
+					ylabel={Acceleration ($a_y$) [m/s\textsuperscript{2}]},
+					legend entries={Output (surface)},
+				]
+				\addplot[thick,blue] table [col sep=comma] {../output_y.csv};
+			\end{axis}
+		}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\tikz{
+			\begin{axis}[
+					width=10cm, height=7cm,
+					xmin=0, xmax=3,
+					ymin=0, ymax=10,
+					%try min ticks=6,
+					grid=major,
+					major grid style={black!5!white},
+					xlabel={Period ($T$) [s]},
+					ylabel={Pseudo-spectral acc. ($S_{ay}$) [m/s\textsuperscript{2}]},
+					legend entries={Input (bottom),Output (surface),Output (surface) 1D},
+					legend cell align=left,
+				]
+				\addplot[thick,red] table [col sep=comma] {input_y_rs.csv};
+				\addplot[thick,blue] table [col sep=comma] {output_y_rs.csv};
+				\addplot[thick,blue,densely dotted] table [col sep=comma] {output_y_rs_1d.csv};
+			\end{axis}
+		}
+	\end{figure}
+\end{document}
